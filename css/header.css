@@ -1,0 +1,7 @@
+header {
+    background-image: url('../assets/image/header-fiix.jpg'); /* Ganti 'path/to/your/image.jpg' dengan path gambar Anda */
+    background-size: cover; /* Menyesuaikan ukuran gambar agar sesuai dengan header */
+    background-position: center; /* Menentukan posisi gambar di tengah header */
+    background-repeat: no-repeat; /* Mencegah gambar diulang pada latar belakang */
+    background-blend-mode: overlay;
+}
