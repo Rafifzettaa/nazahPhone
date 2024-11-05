@@ -20,7 +20,7 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
     $product_result = mysqli_query($db, $product_sql);
     $product = mysqli_fetch_assoc($product_result);
 
-    // Check if the product exists
+    // Check if the product exists if not exist it will be error redirect to home
     if ($product) {
         // Add the product details to the session cart
         if (isset($_SESSION['cart'][$product_id])) {
@@ -36,7 +36,7 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
                 'quantity' => $quantity
             );
         }
-       $produk= $product['nama_produk'];
+        $produk = $product['nama_produk'];
         // Insert or update the cart item in the database
         $user_id = $_SESSION['id_user']; // Assuming the user's ID is stored in the session
         // Check if the item already exists in the cart
@@ -52,23 +52,23 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
             $update_sql = "UPDATE keranjang SET jumlah_produk = jumlah_produk + 1 WHERE id_user = $user_id AND id_produk = $product_id";
             mysqli_query($db, $update_sql);
         } else {
-            
+
             // Item does not exist, insert a new record
-           
+
 
             $insert_sql = "INSERT INTO keranjang (nama_produk,harga_produk,gambar,deskripsi_produk,jumlah_produk, id_produk,id_user) 
             VALUES (
-                '". $product['nama_produk']. "',
-                '". $product['harga_produk']. "',
-                '". $product['gambar_a']. "',
-                '". $product['deskripsi_produk']. "',
+                '" . $product['nama_produk'] . "',
+                '" . $product['harga_produk'] . "',
+                '" . $product['gambar_a'] . "',
+                '" . $product['deskripsi_produk'] . "',
                 $quantity,
                 $product_id, 
                 $user_id
             )";
-            
+
             $_SESSION['cart_count'] += 1;
-         mysqli_query($db, $insert_sql);
+            mysqli_query($db, $insert_sql);
         }
     } else {
         // Product does not exist in the database
@@ -81,4 +81,3 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
 // Redirect back to the product page or to the cart page
 header('Location: keranjang.php');
 exit();
-?>
