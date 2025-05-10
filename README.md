@@ -1,4 +1,4 @@
-# Nazaphone
+# Nazahphone
 
 Nazaphone adalah aplikasi ecommerce untuk penjualan handphone yang dibuat sebagai proyek **UAS PWD Semester 3**. Aplikasi ini mengintegrasikan **Midtrans** sebagai **Payment Gateway (PG)** untuk memfasilitasi transaksi pembayaran yang aman dan mudah.
 
